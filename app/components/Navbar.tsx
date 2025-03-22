@@ -3,7 +3,7 @@
 
 import { Navbar, Link, NavbarContent, NavbarItem } from "@heroui/react";
 import { Path } from "../constants";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function AppNavbar() {
 
