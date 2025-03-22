@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+.bg-background {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--heroui-background)/var(--heroui-background-opacity,var(--tw-bg-opacity)))
+}
+
+.bg-background\/60 {
+  background-color: hsl(var(--heroui-background)/.6)
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
