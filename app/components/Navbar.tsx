@@ -7,13 +7,17 @@ import { useEffect, useState } from "react";
 
 export default function AppNavbar() {
 
-    const [currentHash, setCurrentHash] = useState(window.location.hash)
-    useEffect(()=>{
+    const [currentHash, setCurrentHash] = useState('')
+    useEffect(() => {
         const updateHash = () => setCurrentHash(window.location.hash);
+        if (typeof window === "undefined" || !window) {
+            return;
+        }
+
         window.addEventListener("hashchange", updateHash)
         return () => window.removeEventListener("hashchange", updateHash);
     }, [])
-    
+
     return (
         <Navbar shouldHideOnScroll={false} className="p-12" classNames={{}}>
             <NavbarContent className="hidden w-full sm:flex flex" style={{ justifyContent: "space-evenly" }}>
