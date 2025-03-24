@@ -13,7 +13,7 @@ enum bodyFields {
 const requiredFields = Object.entries(bodyFields).map(entry => entry[0])
 
 export async function GET(request: Request) {
-  return new NextResponse(`TEST 1 ${process.env.EMAIL}-${process.env.API_KEY}`);
+  return new NextResponse(`TEST ${process.env.EMAIL}`);
 }
 
 export async function POST(request: Request) {
@@ -61,20 +61,17 @@ export async function POST(request: Request) {
   try {
     console.log(`sending email: ${JSON.stringify(emailData)}`)
 
-    // const info = await transporter.sendMail({
-    //   from: emailData.sender,
-    //   to: process.env.EMAIL,
-    //   subject: emailData.subject,
-    //   text: emailData.text,
-    //   html: emailData.html
-    // });
+    const info = await transporter.sendMail({
+      from: emailData.sender,
+      to: process.env.EMAIL,
+      subject: emailData.subject,
+      text: emailData.text,
+      html: emailData.html
+    });
 
-    // console.log("Message sent: %s", info.messageId);
-
+    console.log("Message sent: %s", info.messageId);
+    return Response.json({ message: `"Message sent: ${info.messageId}` })
   } catch (error) {
     return new NextResponse("Something went wrong on the server", { status: 503 })
   }
-
-
-  return Response.json({ message: 'Hello world' })
 }
