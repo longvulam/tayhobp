@@ -13,7 +13,7 @@ enum bodyFields {
 const requiredFields = Object.entries(bodyFields).map(entry => entry[0])
 
 export async function GET(request: Request) {
-  return new NextResponse("TEST 1");
+  return new NextResponse(`TEST 1 ${process.env.EMAIL}-${process.env.API_KEY}`);
 }
 
 export async function POST(request: Request) {
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     secure: false,
     auth: {
       user: process.env.EMAIL,
-      pass: process.env.PASSWORD, // the app password Not your gmail password
+      pass: process.env.API_KEY, // the app password Not your gmail password
     },
   });
 
