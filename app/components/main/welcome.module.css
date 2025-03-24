@@ -1,0 +1,31 @@
+.flavorText {
+    /* width: 800px; */
+    /* height: 400px; */
+    /* overflow: hidden; */
+
+    background-size: cover;
+    background-image: url(/_O4A1935.jpg);
+    /* background-repeat: no-repeat; */
+    background-position: right 175% center;
+
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    padding-right: 12px;
+}
+
+.croppedImg {
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(/_O4A1935.jpg);
+    background-position: 170% center;
+}
+
+.croppedImgMobile {
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(/_O4A1935.jpg);
+    background-position: center center;
+}

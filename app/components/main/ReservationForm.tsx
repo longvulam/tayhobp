@@ -1,18 +1,18 @@
 "use client"
-import React from "react";
+import React, { useRef } from "react";
 import { Form, Input, Button, Textarea, DatePicker, Card, CardBody } from "@heroui/react";
-import { Path } from "@/app/constants";
 
 type Errors = {
     terms?: string,
     name?: string,
 }
 
-export default function ReservationPage() {
+export function ReservationForm() {
 
     const [password, setPassword] = React.useState("");
     const [errors, setErrors] = React.useState<Errors>({ terms: "" });
 
+    const nameInputRef = useRef<HTMLInputElement>(null)
 
     async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -69,14 +69,17 @@ export default function ReservationPage() {
 
         return null;
     };
-    // bg-gradient-to-tr from-[#FFB457] to-[#FF705B]
+
+
     return (
-        // <div className="flex flex-col items-center">
-        <div id={Path.Reservation}>
+        <div className="flex flex-col justify-center gap-12 w-[90%] max-w-[610px]">
+            <Button onPress={e => nameInputRef?.current?.focus()}>
+                Reserve a table with us
+            </Button>
+
             <Card
                 isBlurred
-                className="border-none bg-background/60 dark:bg-default-100/50 w-[610px]"
-                // className="border-none bg-black/60 backdrop-blur-md backdrop-saturate-150 dark:bg-default-100/50 max-w-[610px]"
+                className="border-none bg-background/60 dark:bg-default-100/50 w-full"
                 shadow="sm"
             >
                 <CardBody>
@@ -89,6 +92,8 @@ export default function ReservationPage() {
                     >
                         <div className="w-full flex flex-col gap-4 max-w-md">
                             <Input
+                                // id={nameInputId}
+                                ref={nameInputRef}
                                 isRequired
                                 errorMessage={({ validationDetails }) => {
                                     if (validationDetails.valueMissing) {

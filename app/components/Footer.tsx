@@ -1,27 +1,36 @@
 
 "use client"
 
-import { Navbar, Link, NavbarContent, NavbarItem, Button, NavbarBrand } from "@heroui/react";
+import { Navbar, Link, NavbarContent, NavbarItem, NavbarBrand, NavbarMenu, NavbarMenuItem, } from "@heroui/react";
+import { useState } from "react";
+import { FaInstagram } from "react-icons/fa6";
 
 export default function AppNavbar() {
 
     return (
-        <footer className="w-full">
+        <footer className="w-full relative bottom-0">
             <Navbar className="p-12"
                 classNames={{
-                    wrapper: "flex justify-evenly"
-                }}>
-                <NavbarBrand>
-                    <p className="font-bold text-inherit">Tay Ho BP</p>
-                </NavbarBrand>
-                <NavbarContent className="hidden sm:flex gap-4" justify="center" >
+                    wrapper: "flex flex-col sm:flex-row justify-evenly"
+                }}
+
+            >
+
+                <NavbarContent className="flex">
+                    <p className="font-bold text-inherit">Tây Hồ Budapest Vietnamese Restaurant</p>
                     <NavbarItem isActive>
-                        <Link color="foreground" href="/">Social Media</Link>
+                        <Link color="foreground" href="https://www.instagram.com/tayhobudapest/" target="_blank">
+                            <FaInstagram />
+                        </Link>
                     </NavbarItem>
                 </NavbarContent>
+                <NavbarBrand>
+                </NavbarBrand>
                 <NavbarContent justify="end">
                     <NavbarItem>
-                        <p className="font-bold text-inherit">Year TM</p>
+                        <p className="text-inherit">
+                            &copy; 2019 - {new Date().getFullYear()} PHONIX RESTAURANT KFT.
+                        </p>
                     </NavbarItem>
                 </NavbarContent>
             </Navbar>
