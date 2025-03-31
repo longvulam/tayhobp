@@ -1,3 +1,5 @@
+'use client'
+
 export function shuffle(array) {
     let currentIndex = array.length;
   

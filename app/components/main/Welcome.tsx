@@ -46,12 +46,8 @@ export const FlavourText = (props: { size: number, text?: string }) => {
 export default function Welcome() {
 
     const imgNames = useMemo(() => {
-        if (typeof window === 'undefined') {
-            return ['food_wolt_banner.jpg', ...imgs];
-        }
-
         return ['food_wolt_banner.jpg', ...shuffle(imgs)]
-    }, [window]);
+    }, []);
 
     return (
         <div className={`bg-background/60 dark:bg-default-100/50 w-full relative`}>
