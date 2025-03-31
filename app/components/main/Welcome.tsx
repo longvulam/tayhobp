@@ -47,7 +47,7 @@ export default function Welcome() {
 
     const imgNames = useMemo(() => {
         if (typeof window === 'undefined') {
-            return imgs;
+            return ['food_wolt_banner.jpg', ...imgs];
         }
 
         return ['food_wolt_banner.jpg', ...shuffle(imgs)]
@@ -69,15 +69,17 @@ export default function Welcome() {
                     clickable: true,
                 }}
                 modules={[EffectFade, Navigation, Pagination]}
-                wrapperClass=""
-                className={`${styles.swiper} sm:h-[500px]`}
+                // wrapperClass="w-full"
+                // slideClass="w-full"
+                className={`${styles.swiper} w-full sm:h-[500px]`}
             >
                 {imgNames.map(img =>
-                    <SwiperSlide key={img}>
+                    <SwiperSlide key={img} className={styles.slide}>
                         <Image
                             alt=""
-                            className={`${styles.slideImg}`}
+                            className={`w-full ${styles.slideImg}`}
                             src={`/assets/slideshow/${img}`} />
+
                     </SwiperSlide>
                 )}
             </Swiper>

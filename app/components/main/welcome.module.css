@@ -10,7 +10,11 @@
 }
 
 .slideImg {
-    width: 100%;
+    max-width: none;
+}
+
+.slide, .slide>div {
+    max-width: none;
 }
 
 .flavorTextBody {
