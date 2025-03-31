@@ -20,10 +20,10 @@ export default function AppNavbar() {
                         <p className="font-bold text-inherit">
                             Tây Hồ Budapest Vietnamese Restaurant
                         </p>
-                        <p className="text-gray-300">Opening Hours:</p>
-                        <p className="text-gray-300">Mon - Fri 10am - 10pm</p>
-                        <p className="text-gray-300">Ó Street 23.</p>
-                        <p className="text-gray-300">1066, Budapest</p>
+                        <p className="text-sm text-gray-300">Opening Hours:</p>
+                        <p className="text-sm text-gray-300">Mon - Fri 10am - 10pm</p>
+                        <p className="text-sm text-gray-300">1066, Budapest</p>
+                        <p className="text-sm text-gray-300">Ó Street 23.</p>
                     </NavbarItem>
                 </NavbarContent>
                 <NavbarContent className="flex" justify="center">
