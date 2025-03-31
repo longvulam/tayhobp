@@ -23,6 +23,7 @@ export default function Map() {
                 >
                     <Image
                         isZoomed isBlurred
+                        alt="Map Location of the Restaurant"
                         src="/location.png"
 
                     />

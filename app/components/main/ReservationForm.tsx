@@ -3,9 +3,8 @@ import React, { useMemo, useRef } from "react";
 import {
     Form, Input, Button, Textarea, DatePicker, Card,
     CardBody, NumberInput,
-    CalendarDate,
 } from "@heroui/react";
-import { DateValue, now, parseAbsoluteToLocal } from "@internationalized/date";
+import { now } from "@internationalized/date";
 
 
 type Errors = {
@@ -15,7 +14,6 @@ type Errors = {
 
 export function ReservationForm() {
 
-    const [password, setPassword] = React.useState("");
     const [errors, setErrors] = React.useState<Errors>({ terms: "" });
 
     const nameInputRef = useRef<HTMLInputElement>(null)
@@ -77,7 +75,7 @@ export function ReservationForm() {
     };
 
     const defaultDate = useMemo(() => {
-        let date = now('Europe/Budapest');
+        const date = now('Europe/Budapest');
         return date.add({ days: 1 });
     }, [])
 

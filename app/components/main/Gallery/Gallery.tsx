@@ -16,7 +16,7 @@ import { useIsMobile } from "../../common/device";
 import { shuffle } from "../../common/array";
 
 function renderNextImage(
-    { alt = "", title, sizes, style }: RenderImageProps,
+    { alt = "", title, sizes }: RenderImageProps,
     { photo, width, height }: RenderImageContext,
 ) {
     return (
@@ -55,7 +55,7 @@ export default function PhotoGallery() {
         src: `/assets/gallery/${filename}`,
         width: isMobile ? 800 : 600,
         height: 400,
-    }))), [imageFiles]);
+    }))), [imageFiles, isMobile]);
 
     return (
         <div className={`w-full p-[12px] max-h-[1200px] overflow-x-scroll ${styles.container}`}>

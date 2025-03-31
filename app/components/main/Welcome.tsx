@@ -15,6 +15,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { shuffle } from "../common/array";
+import { Image } from "@heroui/react";
 
 const imgs = [
     // 'banh_mi.jpg',
@@ -25,7 +26,7 @@ const imgs = [
     'tavaszi_tekercs.jpg',
     'tayho_tal_salata.jpg',
     'zold_rak.jpg',
-    
+
 ]
 
 export const FlavourText = (props: { size: number, text?: string }) => {
@@ -44,7 +45,7 @@ export const FlavourText = (props: { size: number, text?: string }) => {
 
 export default function Welcome() {
 
-    const imgNames = useMemo(()=> {
+    const imgNames = useMemo(() => {
         if (typeof window === 'undefined') {
             return imgs;
         }
@@ -73,7 +74,10 @@ export default function Welcome() {
             >
                 {imgNames.map(img =>
                     <SwiperSlide key={img}>
-                        <img className={`${styles.slideImg}`} src={`/assets/slideshow/${img}`} />
+                        <Image
+                            alt=""
+                            className={`${styles.slideImg}`}
+                            src={`/assets/slideshow/${img}`} />
                     </SwiperSlide>
                 )}
             </Swiper>
