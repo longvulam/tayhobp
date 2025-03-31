@@ -58,7 +58,7 @@ export default function PhotoGallery() {
     })), [imageFiles, isMobile]);
 
     return (
-        <div className={`w-full p-[12px] max-h-[600px] sm:max-h-[1200px] overflow-x-scroll ${styles.container}`}>
+        <div className={`w-full p-[12px] max-h-[600px] sm:max-h-[1200px] overflow-y-scroll overflow-x-hidden ${styles.container}`}>
             <PhotoAlbum
                 photos={photos}
                 layout="masonry"

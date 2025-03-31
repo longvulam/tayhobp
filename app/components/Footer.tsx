@@ -10,7 +10,7 @@ export default function AppNavbar() {
         <footer className="w-full relative bottom-0">
             <Navbar className="p-12"
                 classNames={{
-                    wrapper: "flex flex-col sm:flex-row justify-evenly"
+                    wrapper: "flex flex-col sm:flex-row sm:justify-evenly h-full"
                 }}
 
             >
