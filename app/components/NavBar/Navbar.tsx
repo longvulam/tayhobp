@@ -24,16 +24,16 @@ export function AppNavbarDesktop() {
         return () => removeEventListener("hashchange", updateHash);
     }, [])
 
-    // const HomeLink = <Link isBlock color="foreground" href={`${Path.Home}`}>Home</Link>;
-    // const ReservationLink = <Link isBlock color="foreground" href={`#${Path.Reservation}`}>Reserve with Us</Link>
-    // const AboutLink = <Link isBlock color="foreground" href={`#${Path.About}`}>About</Link>
-
+    // bg-gradient-to-tr from-[#FFB457] to-[#FF705B]
     return (
         <Navbar shouldHideOnScroll={false}
-            className={`w-screen sm:w-full dark:bg-default-100/50 ${styles.navbarWrap}`}
+            className={`w-screen sm:w-full ${styles.navbarWrap}`}
+                //  dark:bg-default-100/50 
+                 
             classNames={{
                 base: "max-[600px]:hidden",
-                wrapper: ""
+                wrapper: "",
+                item:"font-bold",
             }}
         >
             <NavbarContent className="w-full sm:flex" style={{ justifyContent: "space-evenly" }}>
@@ -75,7 +75,6 @@ export function AppNavbarMobile() {
             removeEventListener("scrollend", updateHash);
         }
     }, [])
-
 
 
     return (<>

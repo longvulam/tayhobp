@@ -1,8 +1,8 @@
 "use client"
 
 import styles from "./welcome.module.css";
-import { Card, CardBody, Image } from "@heroui/react";
 import React, { useMemo } from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
