@@ -1,5 +1,7 @@
 .swiper {
-    width: 100%;
+    width: 600px;
+    height: 300px
+    /* width: 100%; */
     /* height: 500px; */
 
     /* z-index: -1; */
@@ -10,11 +12,11 @@
 }
 
 .slideImg {
-    max-width: none;
+    /* max-width: none; */
 }
 
 .slide, .slide>div {
-    max-width: none;
+    /* max-width: none; */
 }
 
 .flavorTextBody {

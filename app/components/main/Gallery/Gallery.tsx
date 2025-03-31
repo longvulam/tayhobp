@@ -51,14 +51,14 @@ export default function PhotoGallery() {
             });
     }, [])
 
-    const photos = useMemo(() => shuffle(imageFiles.map(filename => ({
+    const photos = useMemo(() => imageFiles.map(filename => ({
         src: `/assets/gallery/${filename}`,
         width: isMobile ? 800 : 600,
         height: 400,
-    }))), [imageFiles, isMobile]);
+    })), [imageFiles, isMobile]);
 
     return (
-        <div className={`w-full p-[12px] max-h-[1200px] overflow-x-scroll ${styles.container}`}>
+        <div className={`w-full p-[12px] max-h-[600px] sm:max-h-[1200px] overflow-x-scroll ${styles.container}`}>
             <PhotoAlbum
                 photos={photos}
                 layout="masonry"
@@ -86,8 +86,8 @@ export default function PhotoGallery() {
                 sizes={{
                     size: "1200px",
                     sizes: [
-                        { viewport: "(max-width: 100%)", size: "calc(100% - 32px)" },
-                        // { viewport: "(max-width: 600px)", size: "calc(100vw - 32px)" },
+                        // { viewport: "(max-width: 100%)", size: "calc(100% - 32px)" },
+                        { viewport: "(max-width: 1200px)", size: "calc(100vw - 32px)" },
                     ],
                 }}
             />

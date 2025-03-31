@@ -93,9 +93,9 @@ export function AppNavbarMobile() {
             <NavbarMenuToggle
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             />
-            <NavbarContent >
-                <NavbarItem isActive={[`#`, ''].includes(currentHash)}>
-                    <FlavourText size={1} text="Tây Hồ Budapest" />
+            <NavbarContent justify="end">
+                <NavbarItem className="leading-loose font-bold" >
+                    Tây Hồ Budapest
                 </NavbarItem>
             </NavbarContent>
 

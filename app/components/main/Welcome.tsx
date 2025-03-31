@@ -14,12 +14,11 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { EffectFade, Navigation, Pagination } from 'swiper/modules';
-import { shuffle } from "../common/array";
 import { Image } from "@heroui/react";
 
 const imgs = [
     // 'banh_mi.jpg',
-    'keverrek_tal.jpg',
+    'keverek_tal.jpg',
     'nom_salata.jpg',
     'padthai_marhahussal.jpg',
     'rak_szirmok.jpg',
@@ -33,7 +32,7 @@ export const FlavourText = (props: { size: number, text?: string }) => {
     const { size, text } = props;
 
     return <div className={styles.flavorTextCard}>
-        <span className={`text-${size}xl sm:text-${size + 2}xl leading-loose font-bold ${styles.flavorTextBody}`}>
+        <span className={`text-xl sm:text-5xl leading-loose font-bold ${styles.flavorTextBody}`}>
             {text ?? (<>
                 Flavors from Vietnam
                 <br />
@@ -46,38 +45,62 @@ export const FlavourText = (props: { size: number, text?: string }) => {
 export default function Welcome() {
 
     const imgNames = useMemo(() => {
-        return ['food_wolt_banner.jpg', ...shuffle(imgs)]
+        return ['food_wolt_banner.jpg', ...imgs]
+        // return ['food_wolt_banner.jpg', ...shuffle(imgs)]
     }, []);
 
     return (
-        <div className={`bg-background/60 dark:bg-default-100/50 w-full relative`}>
+        <div className={`bg-background/60 dark:bg-default-100/50 w-full max-h-[500px] sm:max-h-[500px] relative`}>
             <FlavourText size={3} />
 
             <Swiper
-                loop={true}
-                autoplay={{
-                    delay: 10000,
-                    disableOnInteraction: false,
-                }}
-                effect={'fade'}
-                navigation={true}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[EffectFade, Navigation, Pagination]}
-                // wrapperClass="w-full"
-                // slideClass="w-full"
-                className={`${styles.swiper} w-full sm:h-[500px]`}
+                // loop={true}
+                // autoplay={{
+                //     delay: 10000,
+                //     disableOnInteraction: false,
+                // }}
+                slidesPerView={1}
+            // effect={'fade'}
+            // navigation={true}
+            // pagination={{
+            //     clickable: true,
+            // }}
+            // modules={[EffectFade, Navigation, Pagination]}
+            // wrapperClass="w-full"
+            // slideClass="w-full"
+            // className={`${styles.swiper}`}
             >
-                {imgNames.map(img =>
-                    <SwiperSlide key={img} className={styles.slide}>
+                <SwiperSlide 
+                // className={styles.slide}
+                >
+
+                    <Image
+                        alt=""
+                        src={`/assets/slideshow/food_wolt_banner.jpg`} />
+                </SwiperSlide>
+                {/* <SwiperSlide 
+                // className={styles.slide}
+                >
+
+                    <Image
+                        alt=""
+                        width={500}
+                        height={400}
+                        // className={`${styles.slideImg}`}
+                        src={`/assets/slideshow/nom_salata.jpg`} />
+                </SwiperSlide>
+                {imgs.map(img =>
+                    <SwiperSlide key={img} 
+                    // className={styles.slide}
+                    >
                         <Image
                             alt=""
-                            className={`w-full ${styles.slideImg}`}
+                            // width="100%"
+                            // className={`${styles.slideImg}`}
                             src={`/assets/slideshow/${img}`} />
 
                     </SwiperSlide>
-                )}
+                )} */}
             </Swiper>
         </div>
     )
