@@ -23,15 +23,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
+  //bg-gradient-to-tr from-[#FFB457] to-[#FF705B]
+  
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} dark antialiased bg-gradient-to-tr from-[#FFB457] to-[#FF705B]`}
+        className={`${geistSans.variable} ${geistMono.variable} dark antialiased text-foreground bg-background`}
       >
         <Providers>
           <div className="flex flex-col items-center pt-1200">
-              {children}
+            {children}
           </div>
         </Providers>
 

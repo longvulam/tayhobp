@@ -1,0 +1,34 @@
+.container { 
+    max-height: 1200px;
+    position: relative;
+}
+
+.container:before {
+    content: '';
+    display: flex;
+    position: sticky;
+    height: 50px;
+    margin:-50px;
+    left: 0px;
+    right: 0px;
+    top: -20px;
+
+    background: linear-gradient(to top, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 40%);
+    pointer-events: none;
+  }
+
+.container:after {
+    content: '';
+    display: flex;
+    position: sticky;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    bottom: -15px;
+    background: linear-gradient(to bottom, rgba(139,167,32,0) 0%, rgba(255,255,255,1) 90%);
+    pointer-events: none;
+  }
+
+ .container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}

@@ -1,6 +1,12 @@
 "use client"
-import React, { useRef } from "react";
-import { Form, Input, Button, Textarea, DatePicker, Card, CardBody } from "@heroui/react";
+import React, { useMemo, useRef } from "react";
+import {
+    Form, Input, Button, Textarea, DatePicker, Card,
+    CardBody, NumberInput,
+    CalendarDate,
+} from "@heroui/react";
+import { DateValue, now, parseAbsoluteToLocal } from "@internationalized/date";
+
 
 type Errors = {
     terms?: string,
@@ -70,6 +76,11 @@ export function ReservationForm() {
         return null;
     };
 
+    const defaultDate = useMemo(() => {
+        let date = now('Europe/Budapest');
+        return date.add({ days: 1 });
+    }, [])
+
 
     return (
         <div className="flex flex-col justify-center gap-12 w-[90%] max-w-[610px]">
@@ -102,10 +113,11 @@ export function ReservationForm() {
 
                                     return errors.name;
                                 }}
-                                label="Name"
+                                label="Reservation Name"
                                 labelPlacement="outside"
                                 name="name"
-                                placeholder="Enter your name"
+                                placeholder="Name to identify the booking"
+                                size="lg"
                             />
 
                             <Input
@@ -123,18 +135,41 @@ export function ReservationForm() {
                                 name="email"
                                 placeholder="Enter your email"
                                 type="email"
+                                size="lg"
+                            />
+
+                            <DatePicker
+                                isRequired
+                                label="Reservation Date & Time"
+                                labelPlacement="inside"
+                                hideTimeZone
+                                showMonthAndYearPickers
+                                defaultValue={defaultDate}
+                                timeInputProps={{}}
+                                size="lg"
+                            />
+
+                            <NumberInput
+                                isRequired
+                                label="Number of Guests"
+                                labelPlacement="inside"
+                                name="note"
+                                placeholder="2+"
+                                minValue={1}
+                                size="lg"
                             />
 
                             <Textarea
                                 label="Note"
                                 labelPlacement="inside"
                                 name="note"
-                                placeholder="Type here if your wish to add more"
+                                placeholder="Any special requests or note"
+                                size="lg"
                             />
 
-                            <DatePicker
-
-                            />
+                            <a href=""
+                                data-lg-size=""
+                            ></a>
 
                             {errors.terms && <span className="text-danger text-small">{errors.terms}</span>}
 

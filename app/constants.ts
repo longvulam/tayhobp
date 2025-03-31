@@ -3,5 +3,6 @@ export enum Path {
     Home = "#",
     About = "about",
     Contacts = "contact",
-    Reservation = "reservation"
+    Reservation = "reservation",
+    Gallery = "gallery"
 }

@@ -5,8 +5,13 @@ import { Navbar, Link, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, 
 import { Path } from "../../constants";
 import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
+import { FlavourText } from "../main/Welcome";
 
 
+const HomeLink = <Link isBlock color="foreground" href={`${Path.Home}`}>Home</Link>;
+const ReservationLink = <Link isBlock color="foreground" href={`#${Path.Reservation}`}>Reserve with Us</Link>
+const GalleryLink = <Link isBlock color="foreground" href={`#${Path.Gallery}`}>Gallery</Link>
+const AboutLink = <Link isBlock color="foreground" href={`#${Path.About}`}>About</Link>
 
 export function AppNavbarDesktop() {
 
@@ -19,26 +24,29 @@ export function AppNavbarDesktop() {
         return () => removeEventListener("hashchange", updateHash);
     }, [])
 
-    const HomeLink = <Link color="foreground" href={`${Path.Home}`}>Home</Link>;
-    const ReservationLink = <Link color="foreground" href={`#${Path.Reservation}`}>Reserve with Us</Link>
-    const AboutLink = <Link color="foreground" href={`#${Path.About}`}>About</Link>
+    // const HomeLink = <Link isBlock color="foreground" href={`${Path.Home}`}>Home</Link>;
+    // const ReservationLink = <Link isBlock color="foreground" href={`#${Path.Reservation}`}>Reserve with Us</Link>
+    // const AboutLink = <Link isBlock color="foreground" href={`#${Path.About}`}>About</Link>
 
     return (
         <Navbar shouldHideOnScroll={false}
-            className={`w-screen sm:w-full ${styles.navbarWrap}`}
+            className={`w-screen sm:w-full dark:bg-default-100/50 ${styles.navbarWrap}`}
             classNames={{
                 base: "max-[600px]:hidden",
                 wrapper: ""
             }}
         >
-
             <NavbarContent className="w-full sm:flex" style={{ justifyContent: "space-evenly" }}>
                 <NavbarItem isActive={[`#`, ''].includes(currentHash)}>
                     {HomeLink}
                 </NavbarItem>
-                <NavbarItem isActive={currentHash == `#${Path.Reservation}`}>
-                    {ReservationLink}
+                
+                <NavbarItem isActive={currentHash == `#${Path.Gallery}`}>
+                    {GalleryLink}
                 </NavbarItem>
+                {/* <NavbarItem isActive={currentHash == `#${Path.Reservation}`}>
+                    {ReservationLink}
+                </NavbarItem> */}
 
                 <NavbarItem isActive={currentHash == `#${Path.About}`}>
                     {AboutLink}
@@ -46,17 +54,6 @@ export function AppNavbarDesktop() {
 
             </NavbarContent>
 
-            <NavbarMenu >
-                <NavbarMenuItem isActive={currentHash == `#${Path.Home}`}>
-                    {HomeLink}
-                </NavbarMenuItem >
-                <NavbarMenuItem isActive={currentHash == `#${Path.Reservation}`}>
-                    {ReservationLink}
-                </NavbarMenuItem>
-                <NavbarMenuItem isActive={currentHash == `#${Path.About}`}>
-                    {AboutLink}
-                </NavbarMenuItem>
-            </NavbarMenu>
         </Navbar>
     )
 }
@@ -79,11 +76,9 @@ export function AppNavbarMobile() {
         }
     }, [])
 
-    const HomeLink = <Link color="foreground" href={`${Path.Home}`}>Home</Link>;
-    const ReservationLink = <Link color="foreground" href={`#${Path.Reservation}`}>Reserve with Us</Link>
-    const AboutLink = <Link color="foreground" href={`#${Path.About}`}>About</Link>
 
-    return (
+
+    return (<>
         <Navbar
             isBlurred
             shouldHideOnScroll={false}
@@ -99,18 +94,29 @@ export function AppNavbarMobile() {
             <NavbarMenuToggle
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             />
+            <NavbarContent >
+                <NavbarItem isActive={[`#`, ''].includes(currentHash)}>
+                    <FlavourText size={1} text="Tây Hồ Budapest" />
+                </NavbarItem>
+            </NavbarContent>
 
             <NavbarMenu >
                 <NavbarMenuItem isActive={currentHash == `#${Path.Home}`}>
                     {HomeLink}
                 </NavbarMenuItem >
-                <NavbarMenuItem isActive={currentHash == `#${Path.Reservation}`}>
+                {/* <NavbarMenuItem isActive={currentHash == `#${Path.Reservation}`}>
                     {ReservationLink}
-                </NavbarMenuItem>
+                </NavbarMenuItem> */}
+                <NavbarItem isActive={currentHash == `#${Path.Gallery}`}>
+                    {GalleryLink}
+                </NavbarItem>
                 <NavbarMenuItem isActive={currentHash == `#${Path.About}`}>
                     {AboutLink}
                 </NavbarMenuItem>
             </NavbarMenu>
         </Navbar>
+        
+
+    </>
     )
 }

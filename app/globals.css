@@ -33,3 +33,41 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.paper-scroll {
+  padding: 40px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-family: 'Garamond', serif;
+  border: 2px solid #d4c4a3;
+  background: linear-gradient(to top, #ED7B5A, #FED097);
+  /* background: linear-gradient(to bottom, #F7D8B5, #e7dfc6); */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.1);
+  /* overflow: hidden; */
+}
+
+.paper-scroll::before,
+.paper-scroll::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.paper-scroll::before {
+  left: -20px;
+  box-shadow: inset 20px 0 25px rgba(0, 0, 0, 0.3);
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+}
+
+.paper-scroll::after {
+  right: -20px;
+  box-shadow: inset -20px 0 25px rgba(0, 0, 0, 0.3);
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
+}
